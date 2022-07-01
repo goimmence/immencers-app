@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basic/widgets/button.dart';
 import 'package:flutter_basic/widgets/container_and_sizedbox.dart';
 import 'package:flutter_basic/widgets/row_and_column.dart';
 
@@ -16,7 +17,8 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.deepPurple,
       ),
       // home: const ContainerAndSized();
-      home: const RowAndColumn(),
+      // home: const RowAndColumn(),
+      home: const Button(),
     );
   }
 }

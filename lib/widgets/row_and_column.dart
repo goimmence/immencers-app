@@ -27,11 +27,11 @@ class RowAndColumn extends StatelessWidget {
           - In profile screen or in bio if you use Raw[] text will be overflow.
           - If you use Wrap[] text will automatically adjust and take shape like paragraph.
         */
-        // Change this child: Raw[], Wrap[], Column[]
+        // Change this child: Raw(), Wrap(), Column()
         child: Column(
           // direction: Axis.vertical,
           // alignment: WrapAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Container(

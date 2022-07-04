@@ -8,7 +8,12 @@ class ListAndGrid extends StatefulWidget {
 }
 
 class _ListAndGridState extends State<ListAndGrid> {
-  
+  List<String> superHeros = ["Batman", "Superman", "Flash", "Black-adam"];
+  Map superVillains = {
+    "heros": ["Batman", "Superman", "Flash", "Black-adam"],
+    "villains": ["Joker", "Doomsday", "Re-Flash", "Gods"],
+  };
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,27 +23,24 @@ class _ListAndGridState extends State<ListAndGrid> {
         elevation: 8,
       ),
       body: Container(
-        child: ListView(
-          children: const [
-            Card(
+        child: ListView.builder(
+          itemCount: superHeros.length,
+          itemBuilder: (context, index) {
+            return Card(
               child: ListTile(
-                title: Text("Apple"),
-                subtitle: Text("10"),
+                onTap: () {
+                  debugPrint(superVillains["villains"][index]);
+                },
+                leading: const Icon(Icons.person),
+                title: Text(
+                  superVillains["heros"][index],
+                ),
+                subtitle: Text(
+                  superVillains["villains"][index],
+                ),
               ),
-            ),
-            Card(
-              child: ListTile(
-                title: Text("Apple"),
-                subtitle: Text("10"),
-              ),
-            ),
-            Card(
-              child: ListTile(
-                title: Text("Apple"),
-                subtitle: Text("10"),
-              ),
-            ),
-          ],
+            );
+          },
         ),
       ),
     );

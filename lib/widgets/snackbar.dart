@@ -13,6 +13,11 @@ class SnackBarWidget extends StatelessWidget {
         child: ElevatedButton(
           onPressed: () {
             final snackBar = SnackBar(
+              action: SnackBarAction(
+                label: "Undo",
+                textColor: Colors.blue,
+                onPressed: () {},
+              ),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20)),
               behavior: SnackBarBehavior.floating,

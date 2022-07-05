@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_basic/widgets/button.dart';
 import 'package:flutter_basic/widgets/container_and_sizedbox.dart';
 import 'package:flutter_basic/widgets/dismissible.dart';
+import 'package:flutter_basic/widgets/drawer.dart';
 import 'package:flutter_basic/widgets/list_and_grid.dart';
 import 'package:flutter_basic/widgets/row_and_column.dart';
 import 'package:flutter_basic/widgets/snackbar.dart';
@@ -24,7 +25,8 @@ class MyApp extends StatelessWidget {
       // home: const ListAndGrid(),
       // home: const Button(),
       // home: const SnackBarWidget(),
-      home: const DismissibleWidget(),
+      // home: const DismissibleWidget(),
+      home: const DrawerWidget(),
     );
   }
 }

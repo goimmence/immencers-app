@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basic/widgets/alert.dart';
 import 'package:flutter_basic/widgets/button.dart';
 import 'package:flutter_basic/widgets/container_and_sizedbox.dart';
 import 'package:flutter_basic/widgets/dismissible.dart';
@@ -28,7 +29,8 @@ class MyApp extends StatelessWidget {
       // home: const SnackBarWidget(),
       // home: const DismissibleWidget(),
       // home: const DrawerWidget(),
-      home: const ImageWidget(),
+      // home: const ImageWidget(),
+      home: const AlertWidget(),
     );
   }
 }

@@ -12,8 +12,8 @@ class ImageWidget extends StatelessWidget {
       ),
       body: Center(
         child: Container(
-          height: 300,
-          width: 250,
+          height: 200,
+          width: 300,
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
@@ -23,8 +23,8 @@ class ImageWidget extends StatelessWidget {
               )
             ],
             image: const DecorationImage(
-              image: NetworkImage(
-                "https://images.theconversation.com/files/450362/original/file-20220307-121610-zfik1f.jpeg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop",
+              image: AssetImage(
+                "assets/batman.jpg",
               ),
               fit: BoxFit.cover,
             ),

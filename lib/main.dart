@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basic/widgets/alert.dart';
 import 'package:flutter_basic/widgets/animated_text.dart';
+import 'package:flutter_basic/widgets/bottom_navigation_widget.dart';
 import 'package:flutter_basic/widgets/bottom_sheet_widget.dart';
 import 'package:flutter_basic/widgets/button.dart';
 import 'package:flutter_basic/widgets/container_and_sizedbox.dart';
@@ -34,7 +35,8 @@ class MyApp extends StatelessWidget {
       // home: const ImageWidget(),
       // home: const AlertWidget(),
       // home: const BottomSheetWidget(),
-      home: const AnimatedText(),
+      // home: const AnimatedText(),
+      home: const BottomNavigationWidget(),
     );
   }
 }

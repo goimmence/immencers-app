@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_basic/widgets/alert_widget.dart';
-import 'package:flutter_basic/widgets/list_and_grid.dart';
-import 'package:flutter_basic/widgets/row_and_column.dart';
-import 'package:flutter_basic/widgets/snackbar_widget.dart';
+import 'package:flutter_basic/basic_widgets/alert_widget.dart';
+import 'package:flutter_basic/basic_widgets/list_and_grid.dart';
+import 'package:flutter_basic/basic_widgets/row_and_column.dart';
+import 'package:flutter_basic/basic_widgets/snackbar_widget.dart';
 
 class BottomNavigationWidget extends StatefulWidget {
   const BottomNavigationWidget({Key? key}) : super(key: key);

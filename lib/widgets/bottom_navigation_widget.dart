@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basic/widgets/alert_widget.dart';
+import 'package:flutter_basic/widgets/list_and_grid.dart';
+import 'package:flutter_basic/widgets/row_and_column.dart';
+import 'package:flutter_basic/widgets/snackbar_widget.dart';
 
 class BottomNavigationWidget extends StatefulWidget {
   const BottomNavigationWidget({Key? key}) : super(key: key);
@@ -9,6 +13,8 @@ class BottomNavigationWidget extends StatefulWidget {
 
 class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
   int selectedIndex = 0;
+  PageController pageController = PageController();
+
   List<Widget> widgets = [
     const Text('Home'),
     const Text('Search'),
@@ -20,6 +26,7 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
     setState(() {
       selectedIndex = index;
     });
+    pageController.jumpToPage(index);
   }
 
   @override
@@ -28,7 +35,15 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
       appBar: AppBar(
         title: const Text('Bottom Navigation Widget'),
       ),
-      body: Center(child: widgets.elementAt(selectedIndex)),
+      body: PageView(
+        controller: pageController,
+        children: const [
+          AlertWidget(),
+          SnackBarWidget(),
+          RowAndColumn(),
+          ListAndGrid(),
+        ],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),

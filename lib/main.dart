@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_basic/widgets/alert.dart';
+import 'package:flutter_basic/widgets/alert_widget.dart';
 import 'package:flutter_basic/widgets/animated_text.dart';
 import 'package:flutter_basic/widgets/bottom_navigation_widget.dart';
 import 'package:flutter_basic/widgets/bottom_sheet_widget.dart';
 import 'package:flutter_basic/widgets/button.dart';
 import 'package:flutter_basic/widgets/container_and_sizedbox.dart';
-import 'package:flutter_basic/widgets/dismissible.dart';
-import 'package:flutter_basic/widgets/drawer.dart';
-import 'package:flutter_basic/widgets/image.dart';
+import 'package:flutter_basic/widgets/dismissible_widget.dart';
+import 'package:flutter_basic/widgets/drawer_widget.dart';
+import 'package:flutter_basic/widgets/image_widget.dart';
 import 'package:flutter_basic/widgets/list_and_grid.dart';
 import 'package:flutter_basic/widgets/row_and_column.dart';
-import 'package:flutter_basic/widgets/snackbar.dart';
+import 'package:flutter_basic/widgets/snackbar_widget.dart';
 
 void main() => runApp(const MyApp());
 

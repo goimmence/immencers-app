@@ -15,10 +15,10 @@ class HomeScreen extends StatelessWidget {
         title: const Text('Catalog App'),
       ),
       body: ListView.builder(
-        itemCount: CatalogModel.items.length,
+        itemCount: dummyList.length,
         itemBuilder: (context, index) {
           return ItemWidget(
-            item: CatalogModel.items[index],
+            item: dummyList[index],
           );
         },
       ),

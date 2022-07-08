@@ -21,27 +21,41 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   loadData() async {
+    // Taking json file
     final catalogJson =
         await rootBundle.loadString("assets/files/catalog.json");
+    /*
+      # What is JSON encode & decode?
+      - encode: Any format(e..g Map) -> String
+      - decode: String -> Any format (e.g. Map)
+    */
+    // Decode json data: String to Map
     final decodedData = jsonDecode(catalogJson);
+    // Taking data from product
     var productsData = decodedData["products"];
+    //Mapping json data to constructor
+    CatalogModel.items = List.from(productsData)
+        .map<Item>((item) => Item.fromMap(item))
+        .toList();
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    final dummyList = List.generate(10, (index) => CatalogModel.items[0]);
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('Catalog App'),
       ),
-      body: ListView.builder(
-        itemCount: dummyList.length,
-        itemBuilder: (context, index) {
-          return ItemWidget(
-            item: dummyList[index],
-          );
-        },
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: ListView.builder(
+          itemCount: CatalogModel.items.length,
+          itemBuilder: (context, index) {
+            return ItemWidget(
+              item: CatalogModel.items[index],
+            );
+          },
+        ),
       ),
       drawer: const MyDrawer(),
     );

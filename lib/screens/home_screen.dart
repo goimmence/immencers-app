@@ -49,18 +49,29 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Text('Catalog App'),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: (CatalogModel.items != null && CatalogModel.items!.isNotEmpty) ?  ListView.builder(
-          itemCount: CatalogModel.items?.length,
-          itemBuilder: (context, index) {
-            return ItemWidget(
-              item: CatalogModel.items![index],
-            );
-          },
-        ):const Center(
-          child: CircularProgressIndicator(),
-        )
-      ),
+          padding: const EdgeInsets.all(16.0),
+          child: (CatalogModel.items != null && CatalogModel.items!.isNotEmpty)
+              ? GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisSpacing: 16,
+                      mainAxisSpacing: 16, crossAxisCount: 2),
+                  itemBuilder: (context, index) {
+                    final item = CatalogModel.items![index];
+                    return Card(
+                      clipBehavior: Clip.antiAlias,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      child: GridTile(
+                          header: Text(item.name),
+                          footer: Text(item.price.toString()),
+                          child: Image.network(item.image)),
+                    );
+                  },
+                  itemCount: CatalogModel.items?.length,
+                )
+              : const Center(
+                  child: CircularProgressIndicator(),
+                )),
       drawer: const MyDrawer(),
     );
   }

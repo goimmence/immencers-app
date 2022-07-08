@@ -21,6 +21,8 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   loadData() async {
+    // Delaying data for 2 seconds.
+    await Future.delayed(const Duration(seconds: 2));
     // Taking json file
     final catalogJson =
         await rootBundle.loadString("assets/files/catalog.json");
@@ -48,14 +50,16 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: ListView.builder(
-          itemCount: CatalogModel.items.length,
+        child: (CatalogModel.items != null && CatalogModel.items!.isNotEmpty) ?  ListView.builder(
+          itemCount: CatalogModel.items?.length,
           itemBuilder: (context, index) {
             return ItemWidget(
-              item: CatalogModel.items[index],
+              item: CatalogModel.items![index],
             );
           },
-        ),
+        ):const Center(
+          child: CircularProgressIndicator(),
+        )
       ),
       drawer: const MyDrawer(),
     );

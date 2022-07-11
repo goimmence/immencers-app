@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_unnecessary_containers
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -53,8 +55,9 @@ class _HomeScreenState extends State<HomeScreen> {
           child: (CatalogModel.items != null && CatalogModel.items!.isNotEmpty)
               ? GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisSpacing: 16,
-                      mainAxisSpacing: 16, crossAxisCount: 2),
+                      crossAxisSpacing: 16,
+                      mainAxisSpacing: 16,
+                      crossAxisCount: 2),
                   itemBuilder: (context, index) {
                     final item = CatalogModel.items![index];
                     return Card(
@@ -62,9 +65,30 @@ class _HomeScreenState extends State<HomeScreen> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10)),
                       child: GridTile(
-                          header: Text(item.name),
-                          footer: Text(item.price.toString()),
-                          child: Image.network(item.image)),
+                        header: Container(
+                          padding: const EdgeInsets.all(12),
+                          decoration: const BoxDecoration(
+                            color: Colors.deepPurple,
+                          ),
+                          child: Text(
+                            item.name,
+                            style: const TextStyle(color: Colors.white),
+                          ),
+                        ),
+                        footer: Container(
+                          padding: const EdgeInsets.all(12),
+                          decoration: const BoxDecoration(
+                            color: Colors.deepPurple,
+                          ),
+                          child: Text(
+                            item.price.toString(),
+                            style: const TextStyle(color: Colors.white),
+                          ),
+                        ),
+                        child: Image.network(
+                          item.image,
+                        ),
+                      ),
                     );
                   },
                   itemCount: CatalogModel.items?.length,

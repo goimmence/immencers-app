@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_basic/models/catalog.dart';
 import 'package:flutter_basic/screens/home_detail_screen.dart';
 import 'package:flutter_basic/widgets/home_widgets/catalog_image.dart';
-import 'package:flutter_basic/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class CatalogList extends StatelessWidget {
@@ -65,7 +64,7 @@ class CatalogItem extends StatelessWidget {
                           StadiumBorder(),
                         ),
                       ),
-                      child: "Buy".text.make(),
+                      child: "Add to Cart".text.make(),
                     ),
                   ],
                 ).pOnly(right: 8.0),

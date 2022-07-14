@@ -6,7 +6,6 @@ import 'package:flutter_basic/models/catalog.dart';
 import 'package:flutter_basic/utils/routes.dart';
 import 'package:flutter_basic/widgets/home_widgets/catalog_header.dart';
 import 'package:flutter_basic/widgets/home_widgets/catalog_list.dart';
-import 'package:flutter_basic/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -52,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
         onPressed: () => Navigator.pushNamed(context, MyRoutes.cartRoute),
         child: Icon(CupertinoIcons.cart),
       ),
-      backgroundColor: MyTheme.creamColor,
+      backgroundColor: context.canvasColor,
       body: SafeArea(
         child: Container(
           padding: Vx.m32,

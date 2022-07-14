@@ -4,11 +4,10 @@ class CatalogModel {
   static List<Item>? items;
 
   // Get Item by ID
-  static Item getById(int id) =>
-      items!.firstWhere((element) => element.id == id);
+  Item getById(int id) => items!.firstWhere((element) => element.id == id);
 
   // Get Item by position
-  static Item getByPosition(int position) => items![position];
+  Item getByPosition(int position) => items![position];
 }
 
 class Item {

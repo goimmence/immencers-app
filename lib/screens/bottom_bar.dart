@@ -9,7 +9,7 @@ class BottomBar extends StatefulWidget {
 }
 
 class _BottomBarState extends State<BottomBar> {
-  int _selectedIndex = 3;
+  int _selectedIndex = 0;
 
   // List of text which will show when navigation button tap
   static final List<Widget> _widgetOptions = <Widget>[
@@ -28,9 +28,9 @@ class _BottomBarState extends State<BottomBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Demo App"),
-      ),
+      // appBar: AppBar(
+      //   title: const Text("Demo App"),
+      // ),
       body: Center(
         child: _widgetOptions[_selectedIndex],
       ),

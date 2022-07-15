@@ -1,5 +1,6 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_basic/screens/home_screen.dart';
 
 class BottomBar extends StatefulWidget {
   const BottomBar({Key? key}) : super(key: key);
@@ -12,7 +13,7 @@ class _BottomBarState extends State<BottomBar> {
 
   // List of text which will show when navigation button tap
   static final List<Widget> _widgetOptions = <Widget>[
-    const Text("Home"),
+    HomeScreen(),
     const Text("Search"),
     const Text("Tickets"),
     const Text("Profile"),
@@ -41,6 +42,7 @@ class _BottomBarState extends State<BottomBar> {
         showUnselectedLabels: false,
         selectedItemColor: Colors.blueGrey,
         unselectedItemColor: const Color(0xFF526480),
+        type: BottomNavigationBarType.fixed,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(FluentSystemIcons.ic_fluent_home_regular),

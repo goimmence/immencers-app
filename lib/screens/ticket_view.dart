@@ -40,22 +40,45 @@ class TicketView extends StatelessWidget {
                       const Spacer(),
                       const ThickContainer(),
                       Expanded(
-                        child: SizedBox(
-                          height: 24,
-                          child: LayoutBuilder(
-                            builder: (BuildContext context,
-                                BoxConstraints constraints) {
-                              return Flex(
-                                direction: Axis.horizontal,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: List.generate(
-                                  5,
-                                  (index) => const Text("-"),
+                        child: Stack(
+                          children: [
+                            SizedBox(
+                              height: 24,
+                              child: LayoutBuilder(
+                                builder: (BuildContext context,
+                                    BoxConstraints constraints) {
+                                  return Flex(
+                                    direction: Axis.horizontal,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: List.generate(
+                                      (constraints.constrainWidth() / 6)
+                                          .floor(),
+                                      (index) => const SizedBox(
+                                        width: 3,
+                                        height: 1,
+                                        child: DecoratedBox(
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
+                            Center(
+                              child: Transform.rotate(
+                                angle: 1.5,
+                                child: const Icon(
+                                  Icons.local_airport_rounded,
+                                  color: Colors.white,
                                 ),
-                              );
-                            },
-                          ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                       const ThickContainer(),

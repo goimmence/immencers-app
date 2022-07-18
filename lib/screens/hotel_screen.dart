@@ -3,7 +3,8 @@ import 'package:flutter_basic/utils/app_layout.dart';
 import 'package:flutter_basic/utils/app_styles.dart';
 
 class HotelScreen extends StatelessWidget {
-  const HotelScreen({Key? key}) : super(key: key);
+  final Map<String, dynamic> hotel;
+  const HotelScreen({Key? key, required this.hotel}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,9 +33,9 @@ class HotelScreen extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
               color: Styles.primaryColor,
-              image: const DecorationImage(
+              image: DecorationImage(
                 fit: BoxFit.cover,
-                image: AssetImage("assets/images/hotel_room_one.png"),
+                image: AssetImage("assets/images/${hotel['image']}"),
               ),
             ),
           ),
@@ -42,7 +43,7 @@ class HotelScreen extends StatelessWidget {
             height: 10,
           ),
           Text(
-            "Open space",
+            hotel['place'],
             style: Styles.headLineStyle2.copyWith(
               color: Styles.khakiColor,
             ),
@@ -51,7 +52,7 @@ class HotelScreen extends StatelessWidget {
             height: 5,
           ),
           Text(
-            "London",
+            hotel['destination'],
             style: Styles.headLineStyle3.copyWith(
               color: Colors.white,
             ),
@@ -60,7 +61,7 @@ class HotelScreen extends StatelessWidget {
             height: 8,
           ),
           Text(
-            "\$40/night",
+            "\$${hotel['price']}/night",
             style: Styles.headLineStyle1.copyWith(
               color: Styles.khakiColor,
             ),

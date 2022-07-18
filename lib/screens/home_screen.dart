@@ -2,6 +2,7 @@ import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_basic/screens/hotel_screen.dart';
 import 'package:flutter_basic/screens/ticket_view.dart';
+import 'package:flutter_basic/utils/app_info_list.dart';
 import 'package:flutter_basic/utils/app_styles.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -109,10 +110,11 @@ class HomeScreen extends StatelessWidget {
               left: 20,
             ),
             child: Row(
-              children: const [
-                TicketView(),
-                TicketView(),
-              ],
+              children: ticketList
+                  .map(
+                    (singleTicket) => TicketView(ticket: singleTicket),
+                  )
+                  .toList(),
             ),
           ),
           const SizedBox(
@@ -147,10 +149,15 @@ class HomeScreen extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.only(left: 20),
             child: Row(
-              children: [
-                HotelScreen(),
-                HotelScreen(),
-              ],
+              children:
+                  /*
+                - <hotelList> has map which contain details about the hotels.
+                - We are accessing map from <hotelList> and passing to <HotelScreen> in list format.
+                - One hotel detail at time.
+              */
+                  hotelList
+                      .map((singleHotel) => HotelScreen(hotel: singleHotel))
+                      .toList(),
             ),
           ),
         ],

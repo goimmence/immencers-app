@@ -1,5 +1,6 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_basic/screens/hotel_screen.dart';
 import 'package:flutter_basic/screens/ticket_view.dart';
 import 'package:flutter_basic/utils/app_styles.dart';
 
@@ -34,7 +35,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                         Text(
                           "Book Tickets",
-                          style: Styles.headLineStyle,
+                          style: Styles.headLineStyle1,
                         ),
                       ],
                     ),
@@ -111,6 +112,44 @@ class HomeScreen extends StatelessWidget {
               children: const [
                 TicketView(),
                 TicketView(),
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Hotels",
+                  style: Styles.headLineStyle2,
+                ),
+                InkWell(
+                  onTap: () {
+                    debugPrint("You have tapped");
+                  },
+                  child: Text(
+                    "View all",
+                    style:
+                        Styles.textStyle.copyWith(color: Styles.primaryColor),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            padding: const EdgeInsets.only(left: 20),
+            child: Row(
+              children: [
+                HotelScreen(),
+                HotelScreen(),
               ],
             ),
           ),

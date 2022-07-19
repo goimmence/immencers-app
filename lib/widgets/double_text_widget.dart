@@ -2,7 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_basic/utils/app_styles.dart';
 
 class AppDoubleTextWidget extends StatelessWidget {
-  const AppDoubleTextWidget({Key? key}) : super(key: key);
+  
+  final String bigText;
+  final String smallText;
+
+  const AppDoubleTextWidget({
+    Key? key,
+    required this.bigText,
+    required this.smallText,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -10,16 +18,16 @@ class AppDoubleTextWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          "Upcoming Flight",
-          style: Styles.headLineStyle2,
+          bigText,
+          style: Styles.heading5,
         ),
         InkWell(
           onTap: () {
             debugPrint("You have tapped");
           },
           child: Text(
-            "View all",
-            style: Styles.textStyle.copyWith(color: Styles.primaryColor),
+            smallText,
+            style: Styles.body1.copyWith(color: Styles.primaryColor),
           ),
         ),
       ],

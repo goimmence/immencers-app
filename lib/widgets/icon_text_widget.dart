@@ -32,14 +32,14 @@ class AppIconTextWidget extends StatelessWidget {
         children: [
           Icon(
             icon,
-            color: const Color(0xFFBFC2DF),
+            color: Styles.primaryColor,
           ),
           Gap(
             AppLayout.getWidth(10),
           ),
           Text(
             text,
-            style: Styles.textStyle,
+            style: Styles.body1,
           ),
         ],
       ),

@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_basic/screens/hotel_screen.dart';
 import 'package:flutter_basic/screens/ticket_view.dart';
 import 'package:flutter_basic/utils/app_info_list.dart';
+import 'package:flutter_basic/utils/app_layout.dart';
 import 'package:flutter_basic/utils/app_styles.dart';
+import 'package:flutter_basic/widgets/double_text_widget.dart';
+import 'package:gap/gap.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -11,7 +14,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Styles.bgColor,
+      backgroundColor: Styles.backGroundColor,
       body: ListView(
         children: [
           Container(
@@ -21,6 +24,7 @@ class HomeScreen extends StatelessWidget {
                 const SizedBox(
                   height: 40,
                 ),
+                // Good Morning
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -29,14 +33,14 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         Text(
                           "Good Morning",
-                          style: Styles.headLineStyle3,
+                          style: Styles.subtitle1,
                         ),
                         const SizedBox(
                           height: 5,
                         ),
                         Text(
                           "Book Tickets",
-                          style: Styles.headLineStyle1,
+                          style: Styles.heading4,
                         ),
                       ],
                     ),
@@ -53,57 +57,41 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 25,
+                Gap(
+                  AppLayout.getHeight(25),
                 ),
+                // Search
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color: const Color(0xFFF4f6fd),
+                    color: Styles.whiteColor,
                   ),
                   padding:
                       const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
                   child: Row(
                     children: [
-                      const Icon(
+                      Icon(
                         FluentSystemIcons.ic_fluent_search_regular,
-                        color: Color(0xFFBFC205),
+                        color: Styles.grayColor,
                       ),
                       Text(
                         "Search",
-                        style: Styles.headLineStyle4,
+                        style: Styles.subtitle1,
                       ),
                     ],
                   ),
                 ),
-                const SizedBox(
-                  height: 40,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Upcoming Flight",
-                      style: Styles.headLineStyle2,
-                    ),
-                    InkWell(
-                      onTap: () {
-                        debugPrint("You have tapped");
-                      },
-                      child: Text(
-                        "View all",
-                        style: Styles.textStyle
-                            .copyWith(color: Styles.primaryColor),
-                      ),
-                    ),
-                  ],
-                ),
+                const Gap(40),
+                // Upcoming Flights
+                const AppDoubleTextWidget(
+                    bigText: "Upcoming Flights", smallText: "View all"),
               ],
             ),
           ),
           const SizedBox(
             height: 15,
           ),
+          // Hotels
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.only(
@@ -117,34 +105,13 @@ class HomeScreen extends StatelessWidget {
                   .toList(),
             ),
           ),
-          const SizedBox(
-            height: 15,
-          ),
+          Gap(AppLayout.getHeight(15)),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Hotels",
-                  style: Styles.headLineStyle2,
-                ),
-                InkWell(
-                  onTap: () {
-                    debugPrint("You have tapped");
-                  },
-                  child: Text(
-                    "View all",
-                    style:
-                        Styles.textStyle.copyWith(color: Styles.primaryColor),
-                  ),
-                ),
-              ],
-            ),
+            child: const AppDoubleTextWidget(
+                bigText: "Hotels", smallText: "View all"),
           ),
-          const SizedBox(
-            height: 15,
-          ),
+          Gap(AppLayout.getHeight(15)),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.only(left: 20),

@@ -10,7 +10,7 @@ class AppLayout {
     - When you use getX dependency you don't need pass context.
     - See the below method and compare with fist method
   */
-  static getScreenHeight() {
+  static getScreenHeight() { 
     return Get.height;
   }
 

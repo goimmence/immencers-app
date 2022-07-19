@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basic/utils/app_layout.dart';
 import 'package:flutter_basic/utils/app_styles.dart';
+import 'package:flutter_basic/widgets/double_text_widget.dart';
 import 'package:flutter_basic/widgets/icon_text_widget.dart';
 import 'package:gap/gap.dart';
 
@@ -12,7 +13,7 @@ class SearchScreen extends StatelessWidget {
     final size = AppLayout.getSize(context);
 
     return Scaffold(
-      backgroundColor: Styles.bgColor,
+      backgroundColor: Styles.backGroundColor,
       body: ListView(
         padding: EdgeInsets.symmetric(
           horizontal: AppLayout.getWidth(20),
@@ -24,7 +25,7 @@ class SearchScreen extends StatelessWidget {
           ),
           Text(
             "What are\nyou looking for?",
-            style: Styles.headLineStyle1.copyWith(fontSize: 35),
+            style: Styles.heading1.copyWith(fontSize: 35),
           ),
           Gap(
             AppLayout.getHeight(20),
@@ -38,9 +39,7 @@ class SearchScreen extends StatelessWidget {
               ),
               child: Row(
                 children: [
-                  /*
-                    Airline tickets container
-                  */
+                  // Airline tickets
                   Container(
                     width: size.width * .44,
                     padding: EdgeInsets.symmetric(
@@ -58,9 +57,7 @@ class SearchScreen extends StatelessWidget {
                       child: Text("Airline tickets"),
                     ),
                   ),
-                  /*
-                    Hotels container
-                  */
+                  // Hotels
                   Container(
                     width: size.width * .44,
                     padding: EdgeInsets.symmetric(
@@ -85,23 +82,26 @@ class SearchScreen extends StatelessWidget {
           Gap(
             AppLayout.getHeight(25),
           ),
+          // Departure
           const AppIconTextWidget(
               icon: Icons.flight_takeoff_rounded, text: "Departure"),
           Gap(
             AppLayout.getHeight(20),
           ),
+          // Arrival
           const AppIconTextWidget(
               icon: Icons.flight_land_rounded, text: "Arrival"),
           Gap(
             AppLayout.getHeight(25),
           ),
+          // Find tickets
           Container(
             padding: EdgeInsets.symmetric(
               horizontal: AppLayout.getWidth(18),
               vertical: AppLayout.getHeight(18),
             ),
             decoration: BoxDecoration(
-              color: const Color(0xD91130CE),
+              color: Styles.primaryColor,
               borderRadius: BorderRadius.circular(
                 AppLayout.getHeight(10),
               ),
@@ -109,9 +109,50 @@ class SearchScreen extends StatelessWidget {
             child: Center(
               child: Text(
                 "Find tickets",
-                style: Styles.textStyle.copyWith(color: Colors.white),
+                style: Styles.body1.copyWith(color: Colors.white),
               ),
             ),
+          ),
+          Gap(
+            AppLayout.getHeight(40),
+          ),
+          // Upcoming Flights
+          const AppDoubleTextWidget(
+              bigText: "Upcoming Flights", smallText: "View all"),
+          // Image
+          Row(
+            children: [
+              Container(
+                height: AppLayout.getHeight(400),
+                width: size.width * 0.42,
+                padding: EdgeInsets.symmetric(
+                  vertical: AppLayout.getHeight(15),
+                  horizontal: AppLayout.getWidth(15),
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(
+                    AppLayout.getHeight(20),
+                  ),
+                ),
+                // boxShadow
+                child: Column(
+                  children: [
+                    Container(
+                      height: AppLayout.getHeight(190),
+                      decoration: BoxDecoration(
+                        borderRadius:
+                            BorderRadius.circular(AppLayout.getHeight(12)),
+                        image: const DecorationImage(
+                          fit: BoxFit.cover,
+                          image: AssetImage("assets/images/sit.jpg"),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              )
+            ],
           )
         ],
       ),

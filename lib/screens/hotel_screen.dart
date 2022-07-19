@@ -16,13 +16,13 @@ class HotelScreen extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 17),
       margin: const EdgeInsets.only(right: 17, top: 5),
       decoration: BoxDecoration(
-        color: Styles.primaryColor,
+        color: Styles.yellowColor,
         borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
             color: Colors.grey.shade200,
-            blurRadius: 20,
-            spreadRadius: 5,
+            blurRadius: 40,
+            spreadRadius: 10,
           ),
         ],
       ),
@@ -43,23 +43,17 @@ class HotelScreen extends StatelessWidget {
           const Gap(10),
           Text(
             hotel['place'],
-            style: Styles.headLineStyle2.copyWith(
-              color: Styles.khakiColor,
-            ),
+            style: Styles.heading4.copyWith(color: Colors.white),
           ),
           const Gap(10),
           Text(
             hotel['destination'],
-            style: Styles.headLineStyle3.copyWith(
-              color: Colors.white,
-            ),
+            style: Styles.heading5.copyWith(color: Colors.white),
           ),
           const Gap(10),
           Text(
             "\$${hotel['price']}/night",
-            style: Styles.headLineStyle1.copyWith(
-              color: Styles.khakiColor,
-            ),
+            style: Styles.heading6.copyWith(),
           ),
         ],
       ),

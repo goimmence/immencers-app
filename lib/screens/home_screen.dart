@@ -1,7 +1,7 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_basic/screens/hotel_screen.dart';
-import 'package:flutter_basic/screens/ticket_view.dart';
+import 'package:flutter_basic/screens/ticket_card.dart';
 import 'package:flutter_basic/utils/app_info_list.dart';
 import 'package:flutter_basic/utils/app_layout.dart';
 import 'package:flutter_basic/utils/app_styles.dart';
@@ -100,7 +100,7 @@ class HomeScreen extends StatelessWidget {
             child: Row(
               children: ticketList
                   .map(
-                    (singleTicket) => TicketView(ticket: singleTicket),
+                    (singleTicket) => TicketCard(ticket: singleTicket),
                   )
                   .toList(),
             ),

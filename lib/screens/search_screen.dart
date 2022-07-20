@@ -3,6 +3,7 @@ import 'package:flutter_basic/utils/app_layout.dart';
 import 'package:flutter_basic/utils/app_styles.dart';
 import 'package:flutter_basic/widgets/double_text_widget.dart';
 import 'package:flutter_basic/widgets/icon_text_widget.dart';
+import 'package:flutter_basic/widgets/ticket_tabs.dart';
 import 'package:gap/gap.dart';
 
 class SearchScreen extends StatelessWidget {
@@ -30,54 +31,9 @@ class SearchScreen extends StatelessWidget {
           Gap(
             AppLayout.getHeight(20),
           ),
-          FittedBox(
-            child: Container(
-              padding: const EdgeInsets.all(3.5),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(AppLayout.getHeight(50)),
-                color: const Color(0xFFF4F6FD),
-              ),
-              child: Row(
-                children: [
-                  // Airline tickets
-                  Container(
-                    width: size.width * .44,
-                    padding: EdgeInsets.symmetric(
-                      vertical: AppLayout.getHeight(7),
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.horizontal(
-                        left: Radius.circular(
-                          AppLayout.getHeight(50),
-                        ),
-                      ),
-                      color: Colors.white,
-                    ),
-                    child: const Center(
-                      child: Text("Airline tickets"),
-                    ),
-                  ),
-                  // Hotels
-                  Container(
-                    width: size.width * .44,
-                    padding: EdgeInsets.symmetric(
-                      vertical: AppLayout.getHeight(7),
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.horizontal(
-                        right: Radius.circular(
-                          AppLayout.getHeight(50),
-                        ),
-                      ),
-                      color: Colors.transparent,
-                    ),
-                    child: const Center(
-                      child: Text("Hotels"),
-                    ),
-                  ),
-                ],
-              ),
-            ),
+          const TicketTabs(
+            firstTab: "Airline Tickets",
+            secondTab: "Hotels",
           ),
           Gap(
             AppLayout.getHeight(25),
@@ -125,7 +81,7 @@ class SearchScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                height: AppLayout.getHeight(400),
+                height: AppLayout.getHeight(370),
                 width: size.width * 0.42,
                 padding: EdgeInsets.symmetric(
                   vertical: AppLayout.getHeight(15),
@@ -222,6 +178,54 @@ class SearchScreen extends StatelessWidget {
                         ),
                       ),
                     ],
+                  ),
+                  Gap(
+                    AppLayout.getHeight(15),
+                  ),
+                  // Red circle
+                  Container(
+                    width: size.width * 0.44,
+                    height: AppLayout.getHeight(210),
+                    padding: EdgeInsets.symmetric(
+                      vertical: AppLayout.getHeight(15),
+                      horizontal: AppLayout.getHeight(15),
+                    ),
+                    decoration: BoxDecoration(
+                      color: Styles.redColor,
+                      borderRadius: BorderRadius.circular(
+                        AppLayout.getHeight(18),
+                      ),
+                    ),
+                    child: Column(
+                      children: [
+                        Text(
+                          "Take love",
+                          style: Styles.heading5.copyWith(color: Colors.white),
+                        ),
+                        Gap(
+                          AppLayout.getHeight(15),
+                        ),
+                        // Emoji
+                        RichText(
+                          text: const TextSpan(
+                            children: [
+                              TextSpan(
+                                text: '😍',
+                                style: TextStyle(fontSize: 30),
+                              ),
+                              TextSpan(
+                                text: '😍',
+                                style: TextStyle(fontSize: 50),
+                              ),
+                              TextSpan(
+                                text: '😍',
+                                style: TextStyle(fontSize: 30),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),

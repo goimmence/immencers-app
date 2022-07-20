@@ -3,6 +3,7 @@ import 'package:gap/gap.dart';
 import 'package:flutter_basic/utils/app_layout.dart';
 import 'package:flutter_basic/utils/app_styles.dart';
 import 'package:flutter_basic/widgets/small_circle.dart';
+import 'package:get/get_utils/src/platform/platform.dart';
 
 class TicketCard extends StatelessWidget {
   final Map<String, dynamic> ticket;
@@ -19,7 +20,7 @@ class TicketCard extends StatelessWidget {
     final size = AppLayout.getSize(context);
     return SizedBox(
       width: size.width * 0.85,
-      height: AppLayout.getHeight(200),
+      height: AppLayout.getHeight(GetPlatform.isAndroid == true ? 167 : 169),
       // Outer side container which use for margin.
       child: Container(
         // color: Colors.green,
@@ -220,8 +221,10 @@ class TicketCard extends StatelessWidget {
               decoration: BoxDecoration(
                 color: isColor == null ? Styles.redColor : Colors.white,
                 borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(AppLayout.getHeight(21)),
-                  bottomRight: Radius.circular(AppLayout.getHeight(21)),
+                  bottomLeft: Radius.circular(
+                      isColor == null ? AppLayout.getHeight(21) : 0),
+                  bottomRight: Radius.circular(
+                      isColor == null ? AppLayout.getHeight(21) : 0),
                 ),
               ),
               padding: const EdgeInsets.only(

@@ -20,7 +20,7 @@ class TicketCard extends StatelessWidget {
     final size = AppLayout.getSize(context);
     return SizedBox(
       width: size.width * 0.85,
-      height: AppLayout.getHeight(GetPlatform.isAndroid == true ? 167 : 169),
+      height: AppLayout.getHeight(GetPlatform.isAndroid == true ? 164 : 169),
       // Outer side container which use for margin.
       child: Container(
         // color: Colors.green,

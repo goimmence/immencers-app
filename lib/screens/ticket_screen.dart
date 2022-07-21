@@ -37,6 +37,7 @@ class TicketScreen extends StatelessWidget {
               const SizedBox(
                 height: 1,
               ),
+              /* ----------------------------- Ticket details ----------------------------- */
               Container(
                 color: Colors.white,
                 padding: EdgeInsets.symmetric(
@@ -128,15 +129,44 @@ class TicketScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 1),
-                    /* --------------------------------- Barcode -------------------------------- */
-                    Container(),
-                    BarcodeWidget(barcode: Barcode.code128(),
-                    data: 'https://github.com/martinovovo',
-                    drawText: false)
                   ],
                 ),
               ),
+              const SizedBox(
+                height: 1,
+              ),
+              /* --------------------------------- Barcode -------------------------------- */
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    bottomRight: Radius.circular(AppLayout.getHeight(21)),
+                    bottomLeft: Radius.circular(AppLayout.getHeight(21)),
+                  ),
+                ),
+                margin: EdgeInsets.only(
+                    left: AppLayout.getHeight(15),
+                    right: AppLayout.getHeight(15)),
+                padding: EdgeInsets.only(
+                    top: AppLayout.getHeight(15),
+                    bottom: AppLayout.getHeight(15)),
+                child: Container(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: AppLayout.getHeight(15)),
+                  child: ClipRRect(
+                    borderRadius:
+                        BorderRadius.circular(AppLayout.getHeight(15)),
+                    child: BarcodeWidget(
+                      barcode: Barcode.code128(),
+                      data: 'https://github.com/martinovovo',
+                      drawText: false,
+                      color: Styles.textColor,
+                      width: double.infinity,
+                      height: 70,
+                    ),
+                  ),
+                ),
+              )
             ],
           ),
         ],

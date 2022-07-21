@@ -1,8 +1,10 @@
+import 'package:barcode_widget/barcode_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_basic/screens/ticket_card.dart';
 import 'package:flutter_basic/utils/app_info_list.dart';
 import 'package:flutter_basic/utils/app_layout.dart';
 import 'package:flutter_basic/utils/app_styles.dart';
+import 'package:flutter_basic/widgets/small_dash_line_widget.dart';
 import 'package:flutter_basic/widgets/ticket_details.dart';
 import 'package:flutter_basic/widgets/ticket_tabs.dart';
 import 'package:gap/gap.dart';
@@ -30,12 +32,16 @@ class TicketScreen extends StatelessWidget {
               Gap(AppLayout.getHeight(20)),
               Container(
                 padding: EdgeInsets.only(left: AppLayout.getHeight(15)),
-                child: TicketCard(ticket: ticketList[0], isWithoutColor: true),
+                child: TicketCard(ticket: ticketList[0], isColor: true),
+              ),
+              const SizedBox(
+                height: 1,
               ),
               Container(
                 color: Colors.white,
-                padding:
-                    EdgeInsets.symmetric(horizontal: AppLayout.getHeight(15)),
+                padding: EdgeInsets.symmetric(
+                    horizontal: AppLayout.getHeight(15),
+                    vertical: AppLayout.getHeight(20)),
                 margin: EdgeInsets.symmetric(
                   horizontal: AppLayout.getHeight(15),
                 ),
@@ -58,6 +64,76 @@ class TicketScreen extends StatelessWidget {
                         ),
                       ],
                     ),
+                    Gap(AppLayout.getHeight(20)),
+                    const SmallDashLineWidget(
+                      sections: 15,
+                      isColor: true,
+                      width: 5,
+                    ),
+                    Gap(AppLayout.getHeight(20)),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: const [
+                        TicketDetails(
+                          firstText: "0055 444 77147",
+                          secondText: "Number of E-ticket",
+                          alignment: CrossAxisAlignment.start,
+                          isColor: true,
+                        ),
+                        TicketDetails(
+                          firstText: "B2SG28",
+                          secondText: "Booking code",
+                          alignment: CrossAxisAlignment.end,
+                          isColor: true,
+                        ),
+                      ],
+                    ),
+                    Gap(AppLayout.getHeight(20)),
+                    const SmallDashLineWidget(
+                      sections: 15,
+                      isColor: true,
+                      width: 5,
+                    ),
+                    Gap(AppLayout.getHeight(20)),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          children: [
+                            Row(
+                              children: [
+                                Image.asset(
+                                  "assets/images/visa.png",
+                                  scale: 11,
+                                ),
+                                Text(
+                                  "*** 2462",
+                                  style: Styles.heading6,
+                                )
+                              ],
+                            ),
+                            const Gap(5),
+                            Text(
+                              "Payment method",
+                              style: Styles.body1
+                                  .copyWith(color: Styles.grayColor),
+                            ),
+                          ],
+                        ),
+                        const TicketDetails(
+                          firstText: "\$249.99",
+                          secondText: "price",
+                          alignment: CrossAxisAlignment.end,
+                          isColor: true,
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 1),
+                    /* --------------------------------- Barcode -------------------------------- */
+                    Container(),
+                    BarcodeWidget(barcode: Barcode.code128(),
+                    data: 'https://github.com/martinovovo',
+                    drawText: false)
                   ],
                 ),
               ),

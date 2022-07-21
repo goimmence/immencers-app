@@ -33,7 +33,7 @@ class TicketDetails extends StatelessWidget {
           secondText,
           style: isColor == null
               ? Styles.body1.copyWith(color: Colors.white)
-              : Styles.body1.copyWith(color: Styles.textColor),
+              : Styles.body1.copyWith(color: Styles.grayColor),
         ),
       ],
     );

@@ -88,10 +88,8 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(
-            height: 15,
-          ),
-          // Hotels
+          const SizedBox(height: 15),
+          /* --------------------------------- Red & blue ticket card -------------------------------- */
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.only(
@@ -105,6 +103,7 @@ class HomeScreen extends StatelessWidget {
                   .toList(),
             ),
           ),
+          /* ------------------------------ Hotels images ----------------------------- */
           Gap(AppLayout.getHeight(15)),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 20),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basic/widgets/ticket_details.dart';
 import 'package:gap/gap.dart';
 import 'package:flutter_basic/utils/app_layout.dart';
 import 'package:flutter_basic/utils/app_styles.dart';
@@ -7,12 +8,12 @@ import 'package:get/get_utils/src/platform/platform.dart';
 
 class TicketCard extends StatelessWidget {
   final Map<String, dynamic> ticket;
-  final bool? isColor;
+  final bool? isWithoutColor;
 
   const TicketCard({
     Key? key,
     required this.ticket,
-    this.isColor,
+    this.isWithoutColor,
   }) : super(key: key);
 
   @override
@@ -21,114 +22,108 @@ class TicketCard extends StatelessWidget {
     return SizedBox(
       width: size.width * 0.85,
       height: AppLayout.getHeight(GetPlatform.isAndroid == true ? 164 : 169),
-      // Outer side container which use for margin.
       child: Container(
         // color: Colors.green,
         margin: EdgeInsets.only(right: AppLayout.getHeight(16)),
         child: Column(
           children: [
-            /* ---------------- Blue part of the card ---------------- */
+            /* ---------------- Blue part of the ticket card ---------------- */
             Container(
               decoration: BoxDecoration(
-                color: isColor == null ? Styles.primaryColor : Colors.white,
+                color:
+                    isWithoutColor == null ? Styles.primaryColor : Colors.white,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(AppLayout.getHeight(21)),
                   topRight: Radius.circular(AppLayout.getHeight(21)),
                 ),
               ),
               padding: EdgeInsets.all(AppLayout.getHeight(16)),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        ticket['from']['code'],
-                        style: isColor == null
-                            ? Styles.heading6.copyWith(color: Colors.white)
-                            : Styles.heading6.copyWith(color: Colors.black),
-                      ),
-                      const Spacer(),
-                      // TODO: Remove the isColor parameter to fix the search screen small circle icon.
-                      const SmallCircle(isColor: true),
-                      /* ----------------------------- Small dash lines ---------------------------- */
-                      Expanded(
-                        child: Stack(
-                          children: [
-                            SizedBox(
-                              height: AppLayout.getHeight(24),
-                              child: LayoutBuilder(
-                                builder: (BuildContext context,
-                                    BoxConstraints constraints) {
-                                  return Flex(
-                                    direction: Axis.horizontal,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: List.generate(
-                                      (constraints.constrainWidth() / 6)
-                                          .floor(),
-                                      (index) => SizedBox(
-                                        width: 3,
-                                        height: 1,
-                                        child: DecoratedBox(
-                                          decoration: BoxDecoration(
-                                            color: isColor == null
-                                                ? Colors.white
-                                                : Styles.primaryColor,
-                                          ),
+              child: Column(children: [
+                Row(
+                  children: [
+                    Text(
+                      ticket['from']['code'],
+                      style: isWithoutColor == null
+                          ? Styles.heading6.copyWith(color: Colors.white)
+                          : Styles.heading6.copyWith(color: Colors.black),
+                    ),
+                    const Spacer(),
+                    const SmallCircle(),
+                    /* ----------------------------- Small dash lines ---------------------------- */
+                    Expanded(
+                      child: Stack(
+                        children: [
+                          SizedBox(
+                            height: AppLayout.getHeight(24),
+                            child: LayoutBuilder(
+                              builder: (BuildContext context,
+                                  BoxConstraints constraints) {
+                                return Flex(
+                                  direction: Axis.horizontal,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: List.generate(
+                                    (constraints.constrainWidth() / 6).floor(),
+                                    (index) => SizedBox(
+                                      width: 3,
+                                      height: 1,
+                                      child: DecoratedBox(
+                                        decoration: BoxDecoration(
+                                          color: isWithoutColor == null
+                                              ? Colors.white
+                                              : Styles.primaryColor,
                                         ),
                                       ),
                                     ),
-                                  );
-                                },
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                          /* ------------------------------ Airplane icon ----------------------------- */
+                          Center(
+                            child: Transform.rotate(
+                              angle: 1.5,
+                              child: Icon(
+                                Icons.local_airport_rounded,
+                                color: isWithoutColor == null
+                                    ? Colors.white
+                                    : Styles.primaryColor,
                               ),
                             ),
-                            /* ------------------------------ Airplane icon ----------------------------- */
-                            Center(
-                              child: Transform.rotate(
-                                angle: 1.5,
-                                child: Icon(
-                                  Icons.local_airport_rounded,
-                                  color: isColor == null
-                                      ? Colors.white
-                                      : Styles.primaryColor,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                      // TODO: Remove the isColor parameter to fix the search screen small circle icon.
-                      const SmallCircle(
-                        isColor: true,
-                      ),
-                      const Spacer(),
-                      Text(
-                        ticket['to']['code'],
-                        style: isColor == null
-                            ? Styles.heading6.copyWith(color: Colors.white)
-                            : Styles.heading6.copyWith(color: Colors.black),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 3,
-                  ),
-                  Row(
+                    ),
+                    const SmallCircle(),
+                    const Spacer(),
+                    Text(
+                      ticket['to']['code'],
+                      style: isWithoutColor == null
+                          ? Styles.heading6.copyWith(color: Colors.white)
+                          : Styles.heading6.copyWith(color: Colors.black),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 3,
+                ),
+                Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       SizedBox(
                         width: AppLayout.getWidth(100),
                         child: Text(
                           ticket['from']['name'],
-                          style: isColor == null
+                          style: isWithoutColor == null
                               ? Styles.body1.copyWith(color: Colors.white)
                               : Styles.body1.copyWith(color: Styles.grayColor),
                         ),
                       ),
                       Text(
                         ticket['flying_time'],
-                        style: isColor == null
+                        style: isWithoutColor == null
                             ? Styles.body1.copyWith(color: Colors.white)
                             : Styles.body1.copyWith(color: Colors.black),
                       ),
@@ -137,19 +132,17 @@ class TicketCard extends StatelessWidget {
                         child: Text(
                           ticket['to']['name'],
                           textAlign: TextAlign.end,
-                          style: isColor == null
+                          style: isWithoutColor == null
                               ? Styles.body1.copyWith(color: Colors.white)
                               : Styles.body1.copyWith(color: Styles.grayColor),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+                      )
+                    ]),
+              ]),
             ),
             /* ------------------ Big dash lines ------------------ */
             Container(
-              color: isColor == null ? Styles.redColor : Colors.white,
+              color: isWithoutColor == null ? Styles.redColor : Colors.white,
               child: Row(
                 children: [
                   SizedBox(
@@ -188,7 +181,7 @@ class TicketCard extends StatelessWidget {
                                 height: 1,
                                 child: DecoratedBox(
                                   decoration: BoxDecoration(
-                                    color: isColor == null
+                                    color: isWithoutColor == null
                                         ? Colors.white
                                         : Styles.grayColor,
                                   ),
@@ -216,15 +209,13 @@ class TicketCard extends StatelessWidget {
                 ],
               ),
             ),
-            /* ------------------ Red part of the card ------------------ */
+            /* ------------------ Red part of the ticket card ------------------ */
             Container(
               decoration: BoxDecoration(
-                color: isColor == null ? Styles.redColor : Colors.white,
+                color: isWithoutColor == null ? Styles.redColor : Colors.white,
                 borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(
-                      isColor == null ? AppLayout.getHeight(21) : 0),
-                  bottomRight: Radius.circular(
-                      isColor == null ? AppLayout.getHeight(21) : 0),
+                  bottomLeft: Radius.circular(isWithoutColor == null ? 21 : 0),
+                  bottomRight: Radius.circular(isWithoutColor == null ? 21 : 0),
                 ),
               ),
               padding: const EdgeInsets.only(
@@ -238,65 +229,23 @@ class TicketCard extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            ticket['date'],
-                            style: isColor == null
-                                ? Styles.heading6.copyWith(color: Colors.white)
-                                : Styles.heading6
-                                    .copyWith(color: Styles.textColor),
-                          ),
-                          const Gap(5),
-                          Text(
-                            "Date",
-                            style: isColor == null
-                                ? Styles.body1.copyWith(color: Colors.white)
-                                : Styles.body1
-                                    .copyWith(color: Styles.grayColor),
-                          ),
-                        ],
+                      TicketDetails(
+                        firstText: ticket['date'],
+                        secondText: "Date",
+                        alignment: CrossAxisAlignment.start,
+                        isColor: true,
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            ticket['departure_time'],
-                            style: isColor == null
-                                ? Styles.heading6.copyWith(color: Colors.white)
-                                : Styles.heading6
-                                    .copyWith(color: Styles.textColor),
-                          ),
-                          const Gap(5),
-                          Text(
-                            "Departure time",
-                            style: isColor == null
-                                ? Styles.body1.copyWith(color: Colors.white)
-                                : Styles.body1
-                                    .copyWith(color: Styles.grayColor),
-                          ),
-                        ],
+                      TicketDetails(
+                        firstText: ticket['departure_time'],
+                        secondText: "Departure time",
+                        alignment: CrossAxisAlignment.center,
+                        isColor: true,
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Text(
-                            ticket['number'].toString(),
-                            style: isColor == null
-                                ? Styles.heading6.copyWith(color: Colors.white)
-                                : Styles.heading6
-                                    .copyWith(color: Styles.textColor),
-                          ),
-                          const Gap(5),
-                          Text(
-                            "Number",
-                            style: isColor == null
-                                ? Styles.body1.copyWith(color: Colors.white)
-                                : Styles.body1
-                                    .copyWith(color: Styles.grayColor),
-                          ),
-                        ],
+                      TicketDetails(
+                        firstText: ticket['number'].toString(),
+                        secondText: "Number",
+                        alignment: CrossAxisAlignment.end,
+                        isColor: true,
                       ),
                     ],
                   ),

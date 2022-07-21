@@ -30,7 +30,7 @@ class TicketScreen extends StatelessWidget {
               Gap(AppLayout.getHeight(20)),
               Container(
                 padding: EdgeInsets.only(left: AppLayout.getHeight(15)),
-                child: TicketCard(ticket: ticketList[0], isColor: true),
+                child: TicketCard(ticket: ticketList[0], isWithoutColor: true),
               ),
               Container(
                 color: Colors.white,
@@ -48,11 +48,13 @@ class TicketScreen extends StatelessWidget {
                           firstText: "Flutter DB",
                           secondText: "Passenger",
                           alignment: CrossAxisAlignment.start,
+                          isColor: true,
                         ),
                         TicketDetails(
                           firstText: "5881 654123",
                           secondText: "Passport",
                           alignment: CrossAxisAlignment.end,
+                          isColor: true,
                         ),
                       ],
                     ),

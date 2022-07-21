@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basic/widgets/small_dash_line_widget.dart';
 import 'package:flutter_basic/widgets/ticket_details.dart';
-import 'package:gap/gap.dart';
 import 'package:flutter_basic/utils/app_layout.dart';
 import 'package:flutter_basic/utils/app_styles.dart';
 import 'package:flutter_basic/widgets/small_circle.dart';
@@ -49,8 +48,8 @@ class TicketCard extends StatelessWidget {
                             : Styles.heading6.copyWith(color: Colors.black),
                       ),
                       const Spacer(),
-                      const SmallCircle(
-                        isColor: true,
+                      SmallCircle(
+                        isColor: isColor,
                       ),
                       /* ----------------------------- Small dash lines ---------------------------- */
                       Expanded(
@@ -78,8 +77,8 @@ class TicketCard extends StatelessWidget {
                           ],
                         ),
                       ),
-                      const SmallCircle(
-                        isColor: true,
+                      SmallCircle(
+                        isColor: isColor,
                       ),
                       const Spacer(),
                       Text(
@@ -219,19 +218,19 @@ class TicketCard extends StatelessWidget {
                         firstText: ticket['date'],
                         secondText: "Date",
                         alignment: CrossAxisAlignment.start,
-                        isColor: true,
+                        isColor: isColor,
                       ),
                       TicketDetails(
                         firstText: ticket['departure_time'],
                         secondText: "Departure time",
                         alignment: CrossAxisAlignment.center,
-                        isColor: true,
+                        isColor: isColor,
                       ),
                       TicketDetails(
                         firstText: ticket['number'].toString(),
                         secondText: "Number",
                         alignment: CrossAxisAlignment.end,
-                        isColor: true,
+                        isColor: isColor,
                       ),
                     ],
                   ),

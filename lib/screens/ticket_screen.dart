@@ -148,8 +148,8 @@ class TicketScreen extends StatelessWidget {
                     left: AppLayout.getHeight(15),
                     right: AppLayout.getHeight(15)),
                 padding: EdgeInsets.only(
-                    top: AppLayout.getHeight(15),
-                    bottom: AppLayout.getHeight(15)),
+                    top: AppLayout.getHeight(20),
+                    bottom: AppLayout.getHeight(20)),
                 child: Container(
                   padding:
                       EdgeInsets.symmetric(horizontal: AppLayout.getHeight(15)),
@@ -166,8 +166,51 @@ class TicketScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-              )
+              ),
+              Gap(AppLayout.getHeight(20)),
+              /* ------------------------ Ticket card red and blue ------------------------ */
+              Container(
+                padding: EdgeInsets.only(left: AppLayout.getHeight(15)),
+                child: TicketCard(ticket: ticketList[0]),
+              ),
             ],
+          ),
+          /* ---------------------------- Small black circle ---------------------------- */
+          Positioned(
+            left: AppLayout.getHeight(25),
+            top: AppLayout.getHeight(295),
+            child: Container(
+              padding: const EdgeInsets.all(3),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: Styles.textColor,
+                  width: 2,
+                ),
+              ),
+              child: CircleAvatar(
+                maxRadius: 4,
+                backgroundColor: Styles.textColor,
+              ),
+            ),
+          ),
+          Positioned(
+            right: AppLayout.getHeight(25),
+            top: AppLayout.getHeight(295),
+            child: Container(
+              padding: const EdgeInsets.all(3),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: Styles.textColor,
+                  width: 2,
+                ),
+              ),
+              child: CircleAvatar(
+                maxRadius: 4,
+                backgroundColor: Styles.textColor,
+              ),
+            ),
           ),
         ],
       ),

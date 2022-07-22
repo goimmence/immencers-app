@@ -44,11 +44,19 @@ dev_dependencies:
   # flutter pub get
   # flutter pub run flutter_launcher_icons:main
   flutter_launcher_icons: ^0.9.3
+  # Run this commands for generate splash screen.
+  # flutter pub get
+  # flutter pub run flutter_native_splash:create
+  flutter_native_splash: ^2.2.5
 
 flutter_icons:
   android: true
   ios: true
   image_path: "assets/images/app_icon.png"
+
+flutter_native_splash:
+  image: "assets/images/splash_screen.png"
+  color: "#ffffff"
 
   flutter_test:
     sdk: flutter

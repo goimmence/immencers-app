@@ -4,6 +4,7 @@ import 'package:flutter_basic/screens/home/home_screen.dart';
 import 'package:flutter_basic/screens/home/profile_screen.dart';
 import 'package:flutter_basic/screens/home/search_screen.dart';
 import 'package:flutter_basic/screens/home/ticket_screen.dart';
+import 'package:flutter_basic/screens/wrapper.dart';
 import 'package:flutter_basic/utils/app_styles.dart';
 
 class BottomBar extends StatefulWidget {
@@ -15,8 +16,8 @@ class BottomBar extends StatefulWidget {
 class _BottomBarState extends State<BottomBar> {
   int _selectedIndex = 0;
 
-  // List of text which will show when navigation button tap
   static final List<Widget> _widgetOptions = <Widget>[
+    const Wrapper(),
     const HomeScreen(),
     const SearchScreen(),
     const TicketScreen(),

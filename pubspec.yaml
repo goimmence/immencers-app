@@ -40,6 +40,7 @@ dependencies:
   barcode_widget: ^2.0.2
   firebase_core: ^1.19.0
   firebase_database: ^9.0.17
+  firebase_auth: ^3.4.0
   
 dev_dependencies:
   # Run this commands for generate app icon.

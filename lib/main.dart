@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_basic/screens/bottom_bar.dart';
+import 'package:flutter_basic/screens/home/bottom_bar.dart';
 import 'package:flutter_basic/utils/app_styles.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Immence',
       theme: ThemeData(
         primaryColor: Styles.primaryColor,
       ),

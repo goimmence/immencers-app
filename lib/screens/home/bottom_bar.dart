@@ -1,9 +1,9 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_basic/screens/home_screen.dart';
-import 'package:flutter_basic/screens/profile_screen.dart';
-import 'package:flutter_basic/screens/search_screen.dart';
-import 'package:flutter_basic/screens/ticket_screen.dart';
+import 'package:flutter_basic/screens/home/home_screen.dart';
+import 'package:flutter_basic/screens/home/profile_screen.dart';
+import 'package:flutter_basic/screens/home/search_screen.dart';
+import 'package:flutter_basic/screens/home/ticket_screen.dart';
 import 'package:flutter_basic/utils/app_styles.dart';
 
 class BottomBar extends StatefulWidget {

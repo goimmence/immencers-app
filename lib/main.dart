@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_basic/screens/auth/signup_screen.dart';
 import 'package:flutter_basic/screens/wrapper.dart';
 import 'package:flutter_basic/utils/app_styles.dart';
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Styles.primaryColor,
       ),
-      home: const Wrapper(),
+      home: const SignUpScreen(),
     );
   }
 }

@@ -1,8 +1,11 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_basic/screens/auth/signup_screen.dart';
 import 'package:flutter_basic/services/auth.dart';
 import 'package:flutter_basic/utils/app_styles.dart';
 import 'package:flutter_basic/widgets/text_box.dart';
 import 'package:gap/gap.dart';
+import 'package:get/get.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -12,8 +15,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final AuthService _auth = AuthService();
-
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -23,7 +24,7 @@ class _LoginScreenState extends State<LoginScreen> {
         backgroundColor: Colors.white,
         body: Column(
           children: [
-            /* ------------------------------- Login image ------------------------------ */
+            // Login image
             Container(
               width: width,
               height: height * 0.3,
@@ -104,6 +105,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 style: Styles.body1.copyWith(color: Styles.grayColor),
                 children: [
                   TextSpan(
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () => Get.to(() => SignUpScreen()),
                     text: " Create",
                     style: Styles.body1.copyWith(
                       color: Styles.primaryColor,

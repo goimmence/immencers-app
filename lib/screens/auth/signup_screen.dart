@@ -1,7 +1,9 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_basic/utils/app_styles.dart';
 import 'package:flutter_basic/widgets/text_box.dart';
 import 'package:gap/gap.dart';
+import 'package:get/get.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -15,7 +17,7 @@ class SignUpScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         body: Column(
           children: [
-            /* ------------------------------- Sign up image ------------------------------ */
+            /* ------------------------------- Signup image ------------------------------ */
             Container(
               width: width,
               height: height * 0.3,
@@ -28,7 +30,7 @@ class SignUpScreen extends StatelessWidget {
                 ),
               ),
             ),
-            /* ------------------------------- Hello title ------------------------------ */
+            /* ------------------------------- Create you account ------------------------------ */
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 20.0),
               width: width,
@@ -40,7 +42,7 @@ class SignUpScreen extends StatelessWidget {
                     style: Styles.heading5,
                   ),
                   Gap(20),
-                  /* -------------------------------- Username -------------------------------- */
+                  /* -------------------------------- Email address -------------------------------- */
                   TextBox(
                     hintText: "Enter your email address",
                     isObscureText: false,
@@ -87,23 +89,15 @@ class SignUpScreen extends StatelessWidget {
               child: Text("Sign Up"),
               onPressed: () {},
             ),
-            Gap(40),
-            /* ------------------------------- Create account ------------------------------- */
+            Gap(10),
             RichText(
               text: TextSpan(
-                text: "Don't have an account?",
+                recognizer: TapGestureRecognizer()..onTap = () => Get.back(),
+                text: "Have an account?",
                 style: Styles.body1.copyWith(color: Styles.grayColor),
-                children: [
-                  TextSpan(
-                    text: " Create",
-                    style: Styles.body1.copyWith(
-                      color: Styles.primaryColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
               ),
             ),
+            Gap(40),
           ],
         ),
       ),

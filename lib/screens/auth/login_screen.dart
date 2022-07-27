@@ -49,7 +49,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     style: Styles.heading3,
                   ),
                   Text(
-                    "Sign into your account",
+                    "Login into your account",
                     style: Styles.body1.copyWith(
                       color: Styles.grayColor,
                     ),
@@ -84,8 +84,16 @@ class _LoginScreenState extends State<LoginScreen> {
                 ],
               ),
             ),
-            /* ----------------------------- Sign in button ----------------------------- */
-            Container(),
+            Gap(20),
+            /* ----------------------------- Login in button ----------------------------- */
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Styles.primaryColor,
+                minimumSize: Size(140.0, 40.0),
+              ),
+              child: Text("Login"),
+              onPressed: () {},
+            ),
           ],
         ),
       ),

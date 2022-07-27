@@ -55,13 +55,13 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   Gap(20),
-                  /* -------------------------------- Text box 1-------------------------------- */
+                  /* -------------------------------- Username -------------------------------- */
                   TextBox(
                     hintText: "Enter Username ",
                     isObscureText: false,
                   ),
                   Gap(20),
-                  /* ------------------------------- Text box 2 ------------------------------- */
+                  /* ------------------------------- Password ------------------------------- */
                   TextBox(
                     hintText: "Enter Password",
                     isObscureText: true,
@@ -84,7 +84,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ],
               ),
             ),
-            Gap(20),
+            Gap(40),
             /* ----------------------------- Login in button ----------------------------- */
             ElevatedButton(
               style: ElevatedButton.styleFrom(
@@ -93,6 +93,23 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               child: Text("Login"),
               onPressed: () {},
+            ),
+            Gap(40),
+            /* ------------------------------- Create account ------------------------------- */
+            RichText(
+              text: TextSpan(
+                text: "Don't have an account?",
+                style: Styles.body1.copyWith(color: Styles.grayColor),
+                children: [
+                  TextSpan(
+                    text: " Create",
+                    style: Styles.body1.copyWith(
+                      color: Styles.primaryColor,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),

@@ -45,26 +45,28 @@ class _LoginScreenState extends State<LoginScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Hello",
-                    style: Styles.heading3,
-                  ),
-                  Text(
-                    "Login into your account",
-                    style: Styles.body1.copyWith(
-                      color: Styles.grayColor,
-                    ),
+                    "Login to your account",
+                    style: Styles.heading5,
                   ),
                   Gap(20),
                   /* -------------------------------- Username -------------------------------- */
                   TextBox(
-                    hintText: "Enter Username ",
+                    hintText: "Enter your username ",
                     isObscureText: false,
+                    prefixIcon: Icon(
+                      Icons.person,
+                      color: Styles.primaryColor,
+                    ),
                   ),
                   Gap(20),
                   /* ------------------------------- Password ------------------------------- */
                   TextBox(
-                    hintText: "Enter Password",
+                    hintText: "Enter your password",
                     isObscureText: true,
+                    prefixIcon: Icon(
+                      Icons.password,
+                      color: Styles.primaryColor,
+                    ),
                   ),
                   Gap(20),
                   /* ----------------------------- Forget password ---------------------------- */
@@ -91,7 +93,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 primary: Styles.primaryColor,
                 minimumSize: Size(140.0, 40.0),
               ),
-              child: Text("Login"),
+              child: Text("Sign In"),
               onPressed: () {},
             ),
             Gap(40),

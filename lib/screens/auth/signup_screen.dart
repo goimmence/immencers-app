@@ -22,7 +22,7 @@ class SignUpScreen extends StatelessWidget {
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(
-                    "assets/images/singup.png",
+                    "assets/images/signup.png",
                   ),
                   fit: BoxFit.contain,
                 ),
@@ -36,26 +36,28 @@ class SignUpScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "abcd",
-                    style: Styles.heading3,
-                  ),
-                  Text(
-                    "Login into your account",
-                    style: Styles.body1.copyWith(
-                      color: Styles.grayColor,
-                    ),
+                    "Create your account",
+                    style: Styles.heading5,
                   ),
                   Gap(20),
                   /* -------------------------------- Username -------------------------------- */
                   TextBox(
-                    hintText: "Enter Username ",
+                    hintText: "Enter your email address",
                     isObscureText: false,
+                    prefixIcon: Icon(
+                      Icons.email,
+                      color: Styles.primaryColor,
+                    ),
                   ),
                   Gap(20),
                   /* ------------------------------- Password ------------------------------- */
                   TextBox(
-                    hintText: "Enter Password",
+                    hintText: "Enter your password",
                     isObscureText: true,
+                    prefixIcon: Icon(
+                      Icons.password,
+                      color: Styles.primaryColor,
+                    ),
                   ),
                   Gap(20),
                   /* ----------------------------- Forget password ---------------------------- */
@@ -82,7 +84,7 @@ class SignUpScreen extends StatelessWidget {
                 primary: Styles.primaryColor,
                 minimumSize: Size(140.0, 40.0),
               ),
-              child: Text("Login"),
+              child: Text("Sign Up"),
               onPressed: () {},
             ),
             Gap(40),

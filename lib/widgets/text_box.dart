@@ -6,11 +6,13 @@ import 'package:flutter_basic/utils/app_styles.dart';
 class TextBox extends StatelessWidget {
   final String hintText;
   final bool isObscureText;
+  final Widget prefixIcon;
 
   const TextBox({
     Key? key,
     required this.hintText,
     required this.isObscureText,
+    required this.prefixIcon,
   }) : super(key: key);
 
   @override
@@ -24,6 +26,7 @@ class TextBox extends StatelessWidget {
         obscureText: isObscureText,
         decoration: InputDecoration(
           hintText: hintText,
+          prefixIcon: prefixIcon,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(30),
           ),

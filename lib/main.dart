@@ -12,12 +12,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => ProductsProvider(),
+      create: (context) => Products(),
       child: MaterialApp(
         theme: ThemeData(
           primarySwatch: Colors.deepPurple,
         ),
-        home: const ProductsOverScreen(),
+        home: const ProductsOverviewScreen(),
         routes: {
           ProductDetailsScreen.routeName: (context) =>
               const ProductDetailsScreen(),

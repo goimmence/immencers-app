@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../widget/product_grid.dart';
 
-class ProductsOverScreen extends StatelessWidget {
-  const ProductsOverScreen({Key? key}) : super(key: key);
+class ProductsOverviewScreen extends StatelessWidget {
+  const ProductsOverviewScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +10,7 @@ class ProductsOverScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text("My Shop"),
       ),
-      body: ProductsGrid(),
+      body: const ProductsGrid(),
     );
   }
 }

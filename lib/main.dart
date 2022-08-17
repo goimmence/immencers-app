@@ -13,6 +13,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (context) => Products(),
+      // return ChangeNotifierProvider.value(
+      // value: Products(),
       child: MaterialApp(
         theme: ThemeData(
           primarySwatch: Colors.deepPurple,

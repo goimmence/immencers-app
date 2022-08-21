@@ -19,8 +19,8 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("My Shop"),
+      appBar: AppBar( 
+        title: const Text("My Shop"), 
         actions: [
           PopupMenuButton(
             onSelected: (FilterOption selectedValue) {
@@ -28,7 +28,7 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
                 if (selectedValue == FilterOption.onlyFavorites) {
                   _showOnlyFavorite = true;
                 } else {
-                  _showOnlyFavorite = false;
+                  _showOnlyFavorite = false; 
                 }
               });
             },
